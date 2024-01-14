@@ -1,0 +1,322 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    height: 10vh;
+    background-color: rgb(230, 78, 78);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index : 10;
+}
+
+nav img {
+    height: 50px;
+    width: auto;
+    transform: rotate(-8deg);
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+#actions{
+    width : 25%;
+    height: 100%;
+    display: flex;
+}
+
+#actionsContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.actionContainer{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0.9;
+}
+
+body{
+    background-color: rgb(236, 236, 236);
+}
+
+main{
+    padding-top: 17vh;
+    margin-inline: 10%;
+    /* padding-top: 5vh; */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
+}
+
+#infoPokemon{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#fullCard{
+    width: 100%;
+    background-image: url(../assets/quadrillage.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    border-top: 30px solid rgb(255, 41, 41);
+    border-bottom: 30px solid rgb(255, 41, 41);
+}
+
+#fullCardPresentation{
+    margin-bottom: 3%;
+    padding-top : 5%;
+    padding-inline: 5%;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    border-top: 4px solid black;
+    gap : 20px;
+}
+
+#fullCardImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pokemonImg{
+    height: 120%;
+    width: auto;
+}
+
+#fullCardGeneral{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#fullCardGeneralInfo{
+    display: flex;
+    flex-direction: column;
+    border : 2px solid black;
+    border-radius: 5px;
+}
+
+#idName{
+    padding : 1% 3%;
+    background-color: rgb(255, 41, 41);
+    color: white;
+    border-bottom: 3px solid pink;
+}
+
+#types{
+    padding : 1% 3%;
+    border-bottom: 3px solid white;
+    background-color: white;
+}
+
+#fullCardGeneralAbilities{
+    border : 2px solid black;
+    border-radius: 5px;
+}
+
+#fullCardGeneralAbilitiesBorderLeft{
+    border-left : 6px solid rgb(255, 41, 41);
+}
+
+.abilities{
+    padding : 1% 3%;
+    background-color: white;
+}
+
+.abilities:not(:last-child){
+    border-bottom: 3px dashed rgb(179, 179, 179);
+
+}
+
+#fullCardStats {
+    margin-bottom: 5%;
+    margin-inline: 5%;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+#fullCardStatsBorder{
+    border-inline: 10px solid rgb(255, 41, 41);
+}
+
+.fullCardStatsInfo {
+    background-color: white;
+    border: 3px solid pink;
+    padding: 1% 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap : 3px;
+}
+
+#fullCardTextButton{
+    margin-top : 10px;
+    width: 40%;
+    padding: 2% 0%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 12px;
+    background-color: white;
+    border : 2px solid rgb(230, 78, 78) ;
+    color: rgb(230, 78, 78);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#fullCardTextButton img{
+    width: 30px;
+    height: auto;
+}
+
+h3{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#searchSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6% 4%;
+    background-color: rgba(249, 204, 24, 0.471);
+    border: 5px solid rgb(104, 123, 219);
+    border-radius: 20px;
+    width: 60%;
+    margin-bottom: 10vh;
+    text-align: center;
+}
+
+#searchTextMain{
+    line-height: 1.5;
+    color: rgb(56, 87, 244);
+}
+
+#searchTextSecond{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#searchForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#searchForm input{
+    width: 100%;
+    height: 40px;
+    border: 2px solid rgb(104, 123, 219);
+    border-radius: 10px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+#searchButton{
+    width: 100%;
+    padding: 5%;
+    border: 3px solid rgb(104, 123, 219);
+    border-radius: 15px;
+    background-color: rgba(255, 205, 3, 0.668);
+    font-size: large;
+    font-weight: 600;
+    color: rgb(56, 87, 244);
+}
+
+.errorMessage{
+    padding-block: 10px;
+    color: red;
+    font-size: 18px;
+}
+
+footer{
+    margin-inline: 10%;
+    padding: 20px 0;
+    background-color: rgb(230, 78, 78);
+    color: white;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.selectedAction{
+    background-color: brown;
+    opacity: 1;
+}
+
+@keyframes pokeballMoves {
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {transform: rotate(0);}
+
+    12.5%{transform: rotate(30deg);}
+
+    37.5%{transform: rotate(-30deg);}
+
+    62.5%{transform: rotate(15deg);}
+
+    87.5%{transform: rotate(-15deg);}
+}
+
+@keyframes accentCaptureButton{
+    0% {
+        border : 2px solid rgb(230, 78, 78) ;
+        background-color: white;
+        color: rgb(230, 78, 78);
+    }
+    100% {
+        border: 2px solid pink;
+        background-color: rgb(230, 78, 78);
+        color: white; 
+    }
+}
+
+@keyframes accentCaptureButtonEnd{
+    0% {
+        border: 2px solid pink;
+        background-color: rgb(230, 78, 78);
+        color: white; 
+    }
+    100% {
+        border : 2px solid rgb(230, 78, 78) ;
+        background-color: white;
+        color: rgb(230, 78, 78);
+    }
+}
+
+.accentCaptureButton{
+    animation: accentCaptureButton 0.3s ease-in-out forwards;
+}
+
+.accentCaptureButtonEnd{
+    animation: accentCaptureButtonEnd 0.3s ease-in-out forwards;
+}
+
+.pokeballMoves {
+    animation: pokeballMoves 1s ease-in-out;
+}

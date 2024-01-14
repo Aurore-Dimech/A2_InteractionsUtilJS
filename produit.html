@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokeshop Produits</title>
+
+    <link rel="stylesheet" href="../css/produit.css">
+</head>
+
+<body>
+
+    <nav>
+        <div id="shopIdentity">
+            <a href="index.html"><img src="assets/pokeshop.png" alt=""></a>
+        </div>
+
+        <div id="actions">
+            <div id="actionsContainer">
+                <div class="actionContainer">
+                    <a href="index.html">Accueil</a></li>
+                </div>
+                <div class="actionContainer">
+                    <a href="panier.html">Mon panier</a></li>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="infoPokemon">
+            <button id="fullCardTextButton">
+                <img src="assets/pokeball.png" alt="image de pokeball" id="pokeballButton">
+                Capturer !
+            </button>
+        </section>
+
+
+        <section id="searchSection">
+            <h3 id="searchTextMain">Envie d'un autre pokemon ? <span id="searchTextSecond"><br>Trouvez le ici !</span></h3>
+            <div id="searchForm">
+                <input type="text" name="search" id="searchInput" placeholder="Entrer le nom du Pokemon">
+                <button id="searchButton">
+                    <p>Trouvez le moi !</p>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>A2 CDI Interaction Utilisateur JS</p>
+        <p>PokeAPI</p>
+    </footer>
+
+    <script type="module" src="../js/produit.js"></script>
+</body>
+
+</html>
