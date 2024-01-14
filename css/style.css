@@ -62,7 +62,7 @@ header{
     justify-content: space-evenly;
     align-items: center;
     padding-bottom: 7vh;
-    background-image: url(/assets/bgheader.jpg);
+    background-image: url(../assets/bgheader.jpg);
     background-size: cover;
 }
 
