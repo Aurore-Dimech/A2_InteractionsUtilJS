@@ -134,6 +134,35 @@ h1{
     column-gap: 5px;
 }
 
+.actionsOnPokemonInCart{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.actionsOnPokemonInCart button{
+    height: 100%;
+    padding : 10px 5px;
+    background-color: white;
+    color: rgb(230, 78, 78);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.seeMore{
+    border: 3px solid pink;
+    border-top-left-radius : 15px;
+    border-top-right-radius : 15px;
+    border-bottom: 1.5px solid rgb(230, 78, 78);
+}
+
+.removePokemon{
+    border: 3px solid pink;
+    border-bottom-left-radius : 15px;
+    border-bottom-right-radius : 15px;
+    border-top: 1.5px solid rgb(230, 78, 78);
+}
+
 #releaseAll{
     margin-top : 10px;
     width: 40%;
@@ -144,7 +173,7 @@ h1{
     align-items: center;
     gap : 12px;
     background-color: white;
-    border : 2px solid rgb(230, 78, 78) ;
+    border : 2px solid rgb(179, 179, 179) ;
     color: rgb(230, 78, 78);
     font-size: 18px;
     font-weight: bold;
@@ -225,6 +254,70 @@ footer{
 .selectedAction{
     background-color: brown;
     opacity: 1;
+}
+
+@keyframes accentActionsOnPokemon{
+    0% {
+        border : 2px solid rgb(230, 78, 78) ;
+        background-color: white;
+        color: rgb(230, 78, 78);
+    }
+    100% {
+        border: 2px solid pink;
+        background-color: rgb(230, 78, 78);
+        color: white; 
+    }
+}
+
+@keyframes accentActionsOnPokemonEnd{
+    0% {
+        border: 2px solid pink;
+        background-color: rgb(230, 78, 78);
+        color: white; 
+    }
+    100% {
+        border : 2px solid rgb(230, 78, 78) ;
+        background-color: white;
+        color: rgb(230, 78, 78);
+    }
+}
+
+@keyframes accentIndivActionsOnPokemon{
+    0% {
+        background-color: white;
+        color: rgb(230, 78, 78);
+    }
+    100% {
+        background-color: rgb(230, 78, 78);
+        color: white; 
+    }
+}
+
+@keyframes accentIndivActionsOnPokemonEnd{
+    0% {
+        background-color: rgb(230, 78, 78);
+        color: white; 
+    }
+    100% {
+        background-color: white;
+        color: rgb(230, 78, 78);
+    }
+}
+
+.accentIndivActionsOnPokemon {
+    animation: accentIndivActionsOnPokemon 0.3s ease-in-out forwards;
+}
+
+.accentIndivActionsOnPokemonEnd {
+    animation: accentIndivActionsOnPokemonEnd 0.3s ease-in-out forwards;
+}
+
+.accentActionsOnPokemon{
+    animation: accentActionsOnPokemon 0.3s ease-in-out forwards;
+}
+
+.accentActionsOnPokemonEnd{
+    animation: accentActionsOnPokemonEnd 0.3s ease-in-out forwards;
 }
 
 @media screen and (max-width: 830px) {

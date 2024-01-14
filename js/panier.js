@@ -22,11 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
         fullCart.appendChild(emptyCard);
 
     } else {
-        
+
         releaseAllButton.addEventListener("click", () => {
             localStorage.removeItem("teamList");
             location.reload();
         })
+
+        
+        releaseAllButton.addEventListener('mouseover', () => {
+            releaseAllButton.classList.add('accentActionsOnPokemon');
+            releaseAllButton.addEventListener('mouseleave', () => {
+                releaseAllButton.classList.remove('accentActionsOnPokemon');
+                releaseAllButton.classList.add('accentActionsOnPokemonEnd');
+                releaseAllButton.addEventListener('animationend', () => {
+                    releaseAllButton.classList.remove('accentActionsOnPokemonEnd');
+                })
+            })
+        })
+        
     
         fullTeam.forEach((pokemon, i) => {
             fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
@@ -44,8 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 `
+                const actionsOnPokemonInCart = document.createElement("div");
+                actionsOnPokemonInCart.classList.add("actionsOnPokemonInCart");
+                
                 const releaseButton = document.createElement("button");
                 releaseButton.classList.add("removePokemon");
+                releaseButton.classList.add("indivActionOnPokemon");
                 releaseButton.id = i;
                 releaseButton.textContent = "Relacher";
                 releaseButton.addEventListener("click", () => {
@@ -57,15 +74,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     };
                     removePokemon(i);
                 });
-                indivCard.appendChild(releaseButton);
+                
+                const goToIndivPage = document.createElement("button");
+                goToIndivPage.classList.add("seeMore");
+                goToIndivPage.classList.add("indivActionOnPokemon");
+                goToIndivPage.textContent = "Voir les informations";
+                goToIndivPage.addEventListener("click", () => {
+                    localStorage.setItem("pokemonSearched", pokemon.name);
+                    window.location.href = `produit.html`;
+                });
+                
+                actionsOnPokemonInCart.appendChild(goToIndivPage);
+                actionsOnPokemonInCart.appendChild(releaseButton);
+                indivCard.appendChild(actionsOnPokemonInCart);
                 releaseAllButton.before(indivCard);
+
+                document.querySelectorAll(".indivActionOnPokemon").forEach((action) => {
+                    action.addEventListener("mouseover", () => {
+                        action.classList.add("accentIndivActionsOnPokemon");
+                        action.addEventListener("mouseleave", () => {
+                            action.classList.remove("accentIndivActionsOnPokemon");
+                            action.classList.add("accentIndivActionsOnPokemonEnd");
+                            action.addEventListener("animationend", () => {
+                                action.classList.remove("accentIndivActionsOnPokemonEnd");
+                            })
+                        })
+                    })
+                })
             })
         })
     }
-
-
-
-
 
     const searchInput = document.querySelector("#searchInput");
     const searchButton = document.querySelector("#searchButton")

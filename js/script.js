@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         createPokemonCard();
     })
-    });
 
     const searchInput = document.querySelector("#searchInput");
     const searchButton = document.querySelector("#searchButton")
@@ -134,6 +133,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     
-// });
-
-
+});
