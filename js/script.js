@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    
+    //animations sur les boutons du header
     const headerActions = document.querySelectorAll('.actionContainer');
     headerActions.forEach(selectedAction => {
         selectedAction.addEventListener('mouseover', () => {
@@ -9,10 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         })
     })
-
+    
+    //sélectionner au hasard 9 pokémons et afficher certaines de leurs informations
+    //j'ai rajouté une condition qui empeche d'avoir des boucles infinies si jamais un pokémon n'est pas trouvé
     const browsingList = document.querySelector('#browsingList');
     let successfulCards = 0;
-
     fetch('https://pokeapi.co/api/v2/pokemon')
     .then(response => response.json())
     .then(totalPokemon => {
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     `
                     browsingList.appendChild(pokemonCard);
 
+                    //animations sur les cartes de chaque pokémon
                     pokemonCard.addEventListener('mouseover', () => {
                         pokemonCard.classList.add('accentCardBorder');
                         pokemonCard.addEventListener('mouseleave', () => {
@@ -52,8 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                     })
 
+                    //fonctions pour ouvrir la page de chaque pokémon ainsi que pour mettre les animations sur les boutons "Voir plus"
+                    const seeMoreButtons = document.querySelectorAll('.seeMore');
                     const seeMore = () => {
-                        const seeMoreButtons = document.querySelectorAll('.seeMore');
                         seeMoreButtons.forEach(seeMoreButton => {
                             seeMoreButton.addEventListener('click', (event) => {
                                 const pokemonId = event.target.id;
@@ -95,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         createPokemonCard();
     })
 
+    //fonction de recherche
     const searchInput = document.querySelector("#searchInput");
     const searchButton = document.querySelector("#searchButton")
     const errorMessage = document.createElement("p");

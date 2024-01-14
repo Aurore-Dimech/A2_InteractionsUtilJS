@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    //animations sur les boutons du header
     const headerActions = document.querySelectorAll('.actionContainer');
     headerActions.forEach(selectedAction => {
         selectedAction.addEventListener('mouseover', () => {
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    //générer la carte du pokémon sélectionné, qui affiche certaines de ses informations
     fetch(`https://pokeapi.co/api/v2/pokemon/${localStorage.getItem("pokemonSearched")}`)
     .then(response => response.json())
     .then(pokemonData =>{
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector("#fullCardTextButton").before(fullCard);
     })
 
-
+    //ajouter le pokémon au localStorage (et ainsi l'équipe) et afficher une alerte au click du bouton "Capturer"
     const captureButton = document.querySelector("#fullCardTextButton")
     captureButton.addEventListener("click", () => {
         const pokemon = localStorage.getItem("pokemonSearched");
@@ -55,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`${localStorage.getItem("pokemonSearched")} a été ajouté à l'équipe !`);
     })
     
+    //animations sur le bouton "Capturer"
     const pokeballButton = document.querySelector("#pokeballButton");
     captureButton.addEventListener('mouseover', () => {
         pokeballButton.classList.add("pokeballMoves");
@@ -71,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    //fonction de recherche
     const searchInput = document.querySelector("#searchInput");
     const searchButton = document.querySelector("#searchButton")
     const errorMessage = document.createElement("p");

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    //animations sur les boutons du header
     const headerActions = document.querySelectorAll('.actionContainer');
     headerActions.forEach(selectedAction => {
         selectedAction.addEventListener('mouseover', () => {
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullCart = document.querySelector("#fullCart")
     const releaseAllButton = document.querySelector("#releaseAll");
 
+    //si l'équipe est vide, afficher un message
     if (fullTeam === null || fullTeam.length === 0 ){
         releaseAllButton.style.display = "none";
         const emptyCard = document.createElement('div')
@@ -21,14 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
         emptyCard.innerHTML = "<h2> Vous n'avez pas encore de pokémon dans votre équipe !</h2> <img src='assets/cryingPokemon.webp' alt='Pokémon en train de pleurer'>"
         fullCart.appendChild(emptyCard);
 
-    } else {
+    } else { //générer les cartes de chaque pokémon de l'équipe et afficher certaines de leurs informations
 
+        //retirer tous les pokemons de l'équipe et rafraichir la page au click du bouton "Tout relacher"
         releaseAllButton.addEventListener("click", () => {
             localStorage.removeItem("teamList");
             location.reload();
         })
 
-        
+        //animations sur le bouton "Tout relacher"
         releaseAllButton.addEventListener('mouseover', () => {
             releaseAllButton.classList.add('accentActionsOnPokemon');
             releaseAllButton.addEventListener('mouseleave', () => {
@@ -40,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         })
         
-    
         fullTeam.forEach((pokemon, i) => {
             fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
             .then(response => response.json())
@@ -60,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const actionsOnPokemonInCart = document.createElement("div");
                 actionsOnPokemonInCart.classList.add("actionsOnPokemonInCart");
                 
+                //retirer le pokémon de l'équipe et rafraichir la page au click du bouton "Relacher"
                 const releaseButton = document.createElement("button");
                 releaseButton.classList.add("removePokemon");
                 releaseButton.classList.add("indivActionOnPokemon");
@@ -75,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     removePokemon(i);
                 });
                 
+                //aller sur la page spécifique du pokémon demandé après avoir cliqué sur le bouton "Voir les informations"
                 const goToIndivPage = document.createElement("button");
                 goToIndivPage.classList.add("seeMore");
                 goToIndivPage.classList.add("indivActionOnPokemon");
@@ -89,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 indivCard.appendChild(actionsOnPokemonInCart);
                 releaseAllButton.before(indivCard);
 
+                //animations sur les boutons "Relacher" et "Voir les informations"
                 document.querySelectorAll(".indivActionOnPokemon").forEach((action) => {
                     action.addEventListener("mouseover", () => {
                         action.classList.add("accentIndivActionsOnPokemon");
@@ -105,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+    //fonction de recherche
     const searchInput = document.querySelector("#searchInput");
     const searchButton = document.querySelector("#searchButton")
     const errorMessage = document.createElement("p");
